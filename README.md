@@ -2,9 +2,9 @@ soundcloud-nodejs-api-wrapper
 =============================
 
 Soundcloud Nodejs API Wrapper - connect to the soundcloud API with oauth and without any callback url.
-Soundcloud API DOCS: https://developers.soundcloud.com/docs/api/reference.
+For more details check the [Soundcloud API documentation](https://developers.soundcloud.com/docs/api/reference).
 
-Original NPM repository (not maintained anymore) was https://www.npmjs.com/package/soundcloud-nodejs-api-wrapper
+Original NPM package (not maintained anymore) was [soundcloud-api](https://www.npmjs.com/package/soundcloud-api).
 
 Documentation
 =============

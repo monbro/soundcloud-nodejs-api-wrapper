@@ -1,0 +1,40 @@
+{
+  "name": "soundcloud-nodejs-api-wrapper",
+  "version": "0.2.0",
+  "description": "Soundcloud Nodejs API Wrapper - connect to the soundcloud API with oauth and without any callback url.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monbro/soundcloud-nodejs-api-wrapper"
+  },
+  "keywords": [
+    "soundcloud",
+    "api",
+    "nodejs",
+    "credentials",
+    "token",
+    "username",
+    "serverside",
+    "wrapper"
+  ],
+  "dependencies": {
+    "merge": "1.2.0",
+    "oauth": "0.9.12",
+    "url" : "0.10.2"
+  },
+  "author": {
+    "name": "Michael Klein",
+    "url": "https://github.com/monbro/"
+  },
+  "contributors": [{
+    "name": "Ian Dilling",
+    "url": "http://www.iandilling.com/"
+  }],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monbro/soundcloud-nodejs-api-wrapper/issues"
+  }
+}

@@ -1,5 +1,5 @@
-soundcloud-api
-==============
+soundcloud-nodejs-api-wrapper
+=============================
 
 Soundcloud Nodejs API Wrapper - connect to the soundcloud API with oauth and without any callback url.
 Soundcloud API DOCS: https://developers.soundcloud.com/docs/api/reference.
@@ -40,7 +40,7 @@ The client takes in an object literal defining it's properties and Oauth credent
 To exchange either a refresh_token, user credentials, or a redirect code, call the client's exchange_token function.
 It has an optional parameter that takes in the redirect code.
 
-```
+```js
 client.exchange_token(code, function(err, results) {
   if (err) console.log(err);
   var access_token = results.access_token,

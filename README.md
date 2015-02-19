@@ -46,7 +46,7 @@ var sc = new SC({
 // this client object will be explained more later on
 var client = sc.client();
 
-client.exchange_token(function(err, results) {
+client.exchange_token(function(err, result) {
 
   var access_token = arguments[3].access_token;
   console.log('Our new access token "'+access_token+'" will expire in '+expires_in); // should show your new user token and when it will expire
@@ -59,7 +59,7 @@ client.exchange_token(function(err, results) {
 
   clientnew.get('/me', {limit : 1}, function(err, result) {
     if (err) console.error(err);
-    console.log(result); // should show some data of your user
+    console.log(result); // should show a json object of your soundcloud user
   });
 
 });
@@ -98,4 +98,11 @@ client.get('/me', {limit : 1}, function(err, result) {
   if (err) console.error(err);
   console.log(result);
 });
+```
+
+By default the client will try to treat the result as a json object and therefore to parse it via `JSON.parse()`. You can control this behaviour simply with the following commands:
+
+```js
+client.parsePlain(); // will disable the json parsing for this client object
+Client.parseJson(); // will enable the json parsing for this client object, this is default
 ```

@@ -1,10 +1,11 @@
 {
   "name": "soundcloud-nodejs-api-wrapper",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Soundcloud Nodejs API Wrapper - connect to the soundcloud API with oauth and without any callback url.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "node ./test/test.js",
+    "pretest": "npm install"
   },
   "repository": {
     "type": "git",

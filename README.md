@@ -34,16 +34,35 @@ var sc = new SC({
 ```
 
 Example B without using a redirect_uri and without having a access token:
-
 ```js
 SC = require('soundcloud-nodejs-api-wrapper');
 
-var sc = new SC({
-  client_id : "CLIENTID",
-  client_secret : "CLIENTSECRET",
-  username : 'USERNAME',
-  password: 'PASSWORD'
+// leave options object empty as we use an access token in this example
+var sc = new SC({});
+
+// change 'YOUR_ACCESS_TOKEN'  to make this demo work
+client = sc.client({access_token : 'YOUR_ACCESS_TOKEN'});
+
+client.get('/me', {},function(err, result, response) {
+  if (err) console.error(err);
+
+  console.log(result);
 });
+```
+
+Example C without using a redirect_uri and without having a access token:
+
+```js
+// Setup, please insert your data from your app at http://soundcloud.com/you/apps to make this example work
+var credentials = {
+     client_id : 'xxx',
+     client_secret : 'xxx',
+     username : 'xxx',
+     password : 'xxx'
+    };
+
+SC = require('soundcloud-nodejs-api-wrapper');
+var sc = new SC(credentials);
 
 // this client object will be explained more later on
 var client = sc.client();
@@ -51,7 +70,6 @@ var client = sc.client();
 client.exchange_token(function(err, result) {
 
   var access_token = arguments[3].access_token;
-  console.log('Our new access token "'+access_token+'" will expire in '+expires_in); // should show your new user token and when it will expire
 
   console.log('Full API auth response was:');
   console.log(arguments);

@@ -1,49 +1,46 @@
 /**
- * EXAMPLE A
+ * EXAMPLE B
  *
  * request with having an access token
  */
 
 var SC = require('../index');
 
-// change the following credential to make this demo work
-var sc = new SC({
-	client_id : 'CLIENTID',
-	client_secret : 'CLIENTSECRET',
-	username : 'USERNAME',
-	password : 'PASSWORD'
-});
+// leave options object empty as we use an access token in this example
+var sc = new SC({});
 
+// change 'YOUR_ACCESS_TOKEN'  to make this demo work
+client = sc.client({access_token : 'YOUR_ACCESS_TOKEN'});
 
-client = sc.client({access_token : 'ACCESS_TOKEN'});
-
-client.get('/me/favorites', {limit : 1},function(err, result, response) {
+client.get('/me', {},function(err, result, response) {
 	if (err) console.error(err);
 
 	console.log(result);
 });
 
 /**
- * EXAMPLE B
+ * EXAMPLE C
  *
  * request without having an access token
  */
+
+// Setup, please insert your data from your app at http://soundcloud.com/you/apps to make this example work
+var credentials = {
+     client_id : 'xxx',
+     client_secret : 'xxx',
+     username : 'xxx',
+     password : 'xxx'
+    };
+
 var SC = require('../index');
+var sc = new SC(credentials);
 
-// change the following credential to make this demo work
-var sc = new SC({
-  client_id : "CLIENTID",
-  client_secret : "CLIENTSECRET",
-  username : 'USERNAME',
-  password: 'PASSWORD'
-});
-
+// this client object will be explained more later on
 var client = sc.client();
 
-client.exchange_token(function(err, results) {
+client.exchange_token(function(err, result) {
 
   var access_token = arguments[3].access_token;
-  console.log('Our new access token "'+access_token+'" will expire in '+expires_in); // should show your new user token and when it will expire
 
   console.log('Full API auth response was:');
   console.log(arguments);
@@ -53,7 +50,14 @@ client.exchange_token(function(err, results) {
 
   clientnew.get('/me', {limit : 1}, function(err, result) {
     if (err) console.error(err);
-    console.log(result); // should show some data of your user
+    console.log(result); // should show a json object of your soundcloud user
+  });
+
+  // lets try to create a new empty playlist
+  var jsonString = '{"playlist":{"title":"My brand new Playlist"}}';
+  clientnew.post('/playlists', jsonString, function(err, result) {
+    if (err) console.error(err);
+    console.log(result); // should show the json object of our new playlist
   });
 
 });

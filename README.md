@@ -6,7 +6,7 @@ For more details check the [Soundcloud API documentation](https://developers.sou
 
 Original NPM package (not maintained anymore) was [soundcloud-api](https://www.npmjs.com/package/soundcloud-api).
 
-!! Since v0.3.0 supports now fully content modifications via POST / PUT requests fomr the server side. There was a authentication bug.
+!! Since v0.3.0 supports now fully content modifications via POST / PUT requests from the server side. There was a authentication bug.
 
 Documentation
 =============
@@ -33,7 +33,7 @@ var sc = new SC({
 });
 ```
 
-Example B without using a redirect_uri and without having a access token:
+Example B without using a redirect_uri and using an access token only:
 ```js
 SC = require('soundcloud-nodejs-api-wrapper');
 

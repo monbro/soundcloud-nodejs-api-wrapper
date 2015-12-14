@@ -6,6 +6,8 @@ For more details check the [Soundcloud API documentation](https://developers.sou
 
 Original NPM package (not maintained anymore) was [soundcloud-api](https://www.npmjs.com/package/soundcloud-api).
 
+!! Since v0.3.0 supports now fully content modifications via POST / PUT requests fomr the server side. There was a authentication bug.
+
 Documentation
 =============
 
@@ -14,7 +16,7 @@ Documentation
 Include the module and create a new Soundcloud object. Parameter is an object literal with the following values:
 * client_id : (string) Your apps client id.
 * client_secret : (string) Your apps client secret.
-* redirect_uri : (string) Your apps redirect_uri.
+* redirect_uri : (string) Your apps redirect_uri. (optional)
 * ssl : (boolean) If true, all API calls are HTTPS. Defaults to false.
 * username : A users username. Used for Oauth's User Credentials Flow. See below.
 * password : A users password. Used for Oauth's User Credentials Flow. See below.
@@ -62,6 +64,13 @@ client.exchange_token(function(err, result) {
     console.log(result); // should show a json object of your soundcloud user
   });
 
+  // lets try to create a new empty playlist
+  var jsonString = '{"playlist":{"title":"My brand new Playlist"}}';
+  clientnew.post('/playlists', jsonString, function(err, result) {
+    if (err) console.error(err);
+    console.log(result); // should show the json object of our new playlist
+  });
+
 });
 ```
 
@@ -105,4 +114,5 @@ By default the client will try to treat the result as a json object and therefor
 ```js
 client.parsePlain(); // will disable the json parsing for this client object
 Client.parseJson(); // will enable the json parsing for this client object, this is default
+Client.sendJson(boolean); // will enable or disable the header information about sending json or form field within our request (by default enabled)
 ```
